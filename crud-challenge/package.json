@@ -3,11 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "massive": "^5.7.7",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-redux": "^6.0.1",
+    "react-router": "^5.0.0",
+    "react-router-dom": "^5.0.0",
     "react-scripts": "^2.1.8"
   },
   "scripts": {
@@ -20,6 +24,7 @@
     "extends": "react-app"
   },
   "main": "./server/server.js",
+  "proxy": "http://localhost:3333",
   "browserslist": [
     ">0.2%",
     "not dead",
