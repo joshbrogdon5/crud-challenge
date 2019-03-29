@@ -12,7 +12,7 @@ module.exports = {
     createEmployee: (req, res) => {
         const dbInstance = req.app.get('db');
 
-        dbInstance.create_employee([req.body.first_name, req.body.last_name, req.body.email, req.body.phone_number, req.body.salary])
+        dbInstance.create_employee([req.body.first_name, req.body.last_name, req.body.email, req.body.phone_number, req.body.salary, req.body.editing])
             .then(() => res.sendStatus(200))
             .catch(err => {
                 res.status(500).send({ errorMessage: "Oops, something went wrong!" })
@@ -28,6 +28,26 @@ module.exports = {
                 .then(employee => res.status(200).send(employee))
             })
               .catch(err => {
+                res.status(500).send({ errorMessage: "Oops, something went wrong!" })
+                console.log(err)
+            })
+    },
+    editingToggle: (req, res) => {
+        const dbInstance = req.app.get('db');
+
+        dbInstance.edit_toggle([req.body.editing, req.params.id])
+            .then(() => res.sendStatus(200))
+            .catch(err => {
+                res.status(500).send({ errorMessage: "Oops, something went wrong!" })
+                console.log(err)
+            })
+    },
+    updateEmployeeInfo: (req, res) => {
+        const dbInstance = req.app.get('db');
+
+        dbInstance.update_employee([req.body.first_name, req.body.last_name, req.body.email, req.body.phone_number, req.body.salary, req.body.editing, req.params.id])
+            .then(() => res.sendStatus(200))
+            .catch(err => {
                 res.status(500).send({ errorMessage: "Oops, something went wrong!" })
                 console.log(err)
             })

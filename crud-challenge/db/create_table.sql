@@ -4,5 +4,6 @@ CREATE TABLE Users (
     last_name VARCHAR(50) NOT NULL,
     email VARCHAR(50) UNIQUE NOT NULL,
     phone_number VARCHAR(50),
-    salary VARCHAR(50)
+    salary VARCHAR(50),
+    editing BOOLEAN
 );

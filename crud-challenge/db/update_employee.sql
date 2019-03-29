@@ -1,0 +1,1 @@
+UPDATE Users SET (first_name, last_name, email, phone_number, salary, editing) = ($1, $2, $3, $4, $5, $6) WHERE employee_id = $7;
