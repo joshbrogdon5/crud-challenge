@@ -79,40 +79,40 @@ class Home extends Component {
         let displayEmployees = this.state.employees.map((e, i) => {
             if (e.editing === false) {
                 return (
-                    <div class="displayInputs">
-                        <p>{e.first_name}</p>
-                        <p>{e.last_name}</p>
-                        <p>{e.email}</p>
-                        <p>{e.phone_number}</p>
-                        <p>{e.salary}</p>
-                        <button onClick={() => this.editToggle(e.employee_id)}>Edit</button>
-                        <button onClick={() => this.deleteEmployee(e.employee_id)}>Delete</button>
+                    <div class="display">
+                        <p>Name: {e.first_name} {e.last_name}</p>
+                        <p>Email: {e.email}</p>
+                        <p>Phone Number: {e.phone_number}</p>
+                        <p>Salary: ${e.salary}</p>
+                        <button class="warningBtn edit" onClick={() => this.editToggle(e.employee_id)}>Edit</button>
+                        <button class="deleteBtn edit" onClick={() => this.deleteEmployee(e.employee_id)}>Delete</button>
                     </div>
                 )
             } else {
                 return (
-                    <div class="editInputs">
-                        <input placeholder={e.first_name} type="text" onChange={(e) => this.handleChange('first_name', e.target.value)} />
-                        <input placeholder={e.last_name} type="text" onChange={(e) => this.handleChange('last_name', e.target.value)} />
-                        <input placeholder={e.email} type="text" onChange={(e) => this.handleChange('email', e.target.value)} />
-                        <input placeholder={e.phone_number} type="text" onChange={(e) => this.handleChange('phone_number', e.target.value)} />
-                        <input placeholder={e.salary} type="text" onChange={(e) => this.handleChange('salary', e.target.value)} />
-                        <button onClick={() => this.updateEmployeeInfo(e.employee_id)}>Save</button>
-                        <button onClick={() => this.editToggle(e.employee_id)}>Undo</button>
-                        <button onClick={() => this.deleteEmployee(e.employee_id)}>Delete</button>
-                    </div>
+                        <div class="editInputs">
+                            <input class="editInput" placeholder={e.first_name} type="text" onChange={(e) => this.handleChange('first_name', e.target.value)} />
+                            <input class="editInput" placeholder={e.last_name} type="text" onChange={(e) => this.handleChange('last_name', e.target.value)} />
+                            <input class="editInput" placeholder={e.email} type="text" onChange={(e) => this.handleChange('email', e.target.value)} />
+                            <input class="editInput" placeholder={e.phone_number} type="text" onChange={(e) => this.handleChange('phone_number', e.target.value)} />
+                            <input class="editInput" placeholder={e.salary} type="text" onChange={(e) => this.handleChange('salary', e.target.value)} />
+                            <button class="primaryBtn edit" onClick={() => this.updateEmployeeInfo(e.employee_id)}>Save</button>
+                            <button class="warningBtn" onClick={() => this.editToggle(e.employee_id)}>Undo</button>
+                            <button class="deleteBtn" onClick={() => this.deleteEmployee(e.employee_id)}>Delete</button>
+                        </div>
                 )
             }
         })
         return (
             <div class="main">
+                <h2>Employee Management</h2>
                 <div class="createInputs">
-                    <input placeholder="first name" value={this.state.first_name} type="text" onChange={(e) => this.handleChange('first_name', e.target.value)} />
-                    <input placeholder="last name" value={this.state.last_name} type="text" onChange={(e) => this.handleChange('last_name', e.target.value)} />
-                    <input placeholder="email" type="text" value={this.state.email} onChange={(e) => this.handleChange('email', e.target.value)} />
-                    <input placeholder="phone number" type="text" value={this.state.phone_number} onChange={(e) => this.handleChange('phone_number', e.target.value)} />
-                    <input placeholder="salary" type="text" value={this.state.salary} onChange={(e) => this.handleChange('salary', e.target.value)} />
-                    <button onClick={() => this.createEmployee()}>Add</button>
+                    <input class="createInput" placeholder="first name" value={this.state.first_name} type="text" onChange={(e) => this.handleChange('first_name', e.target.value)} />
+                    <input class="createInput" placeholder="last name" value={this.state.last_name} type="text" onChange={(e) => this.handleChange('last_name', e.target.value)} />
+                    <input class="createInput" placeholder="email" type="text" value={this.state.email} onChange={(e) => this.handleChange('email', e.target.value)} />
+                    <input class="createInput" placeholder="phone number" type="text" value={this.state.phone_number} onChange={(e) => this.handleChange('phone_number', e.target.value)} />
+                    <input class="createInput" placeholder="salary" type="text" value={this.state.salary} onChange={(e) => this.handleChange('salary', e.target.value)} />
+                    <button class="primaryBtn" onClick={() => this.createEmployee()}>Add</button>
                 </div>
                 {displayEmployees}
             </div>
