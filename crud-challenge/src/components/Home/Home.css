@@ -75,7 +75,7 @@ button.primaryBtn:hover{
 }
 
 button.warningBtn{
-    background-color: #ffcc00;
+    background-color: #e6b800;
     border: 1px solid #cca300;
     border-radius: 3px;
     color: #fff;
@@ -84,7 +84,7 @@ button.warningBtn{
 
 button.warningBtn:hover{
     cursor: pointer;
-    background-color: #e6b800;
+    background-color: #cca300;
     border: 1px solid #cca300;
 }
 
