@@ -22,13 +22,11 @@ class Home extends Component {
         axios.get('/api/allemployees').then(results => {
             this.setState(this.state.employees = results.data)
         })
-        console.log(this.state.employees)
     }
 
     handleChange = (stateName, val) => {
         if (val === undefined) {
             val = this.state.stateName
-            console.log('hit')
         }
         this.setState({
             [stateName]: val
